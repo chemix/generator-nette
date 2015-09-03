@@ -13,9 +13,10 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: function () {
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('component.php'),
-      this.destinationPath('app/components/'+ this.componentName +'.php')
+      this.destinationPath('app/components/'+ this.componentName +'.php'),
+      { componentName: this.componentName }
     );
     this.fs.copy(
       this.templatePath('component.latte'),
