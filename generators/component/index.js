@@ -22,9 +22,12 @@ module.exports = yeoman.generators.Base.extend({
         templateFile: this.componentName,
       }
     );
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('component.latte'),
-      this.destinationPath('app/components/'+ this.componentName +'.latte')
+      this.destinationPath('app/components/'+ this.componentName +'.latte'),
+      {
+        componentName: _.capitalize(this.componentName)
+      }
     );
   }
 });
