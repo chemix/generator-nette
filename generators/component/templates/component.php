@@ -12,7 +12,7 @@ class <%= componentName %> extends Control
   public function render()
   {
     $template = $this->template;
-    $template->setFile(dirname(__FILE__) . '/<%= componentName %>.latte');
+    $template->setFile(dirname(__FILE__) . '/<%= templateFile %>.latte');
 
     $template->render();
   }
