@@ -1,5 +1,6 @@
 'use strict';
 var yeoman = require('yeoman-generator');
+var _ = require('lodash');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -16,7 +17,10 @@ module.exports = yeoman.generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('component.php'),
       this.destinationPath('app/components/'+ this.componentName +'.php'),
-      { componentName: this.componentName }
+      {
+        componentName: _.capitalize(this.componentName),
+        templateFile: this.componentName,
+      }
     );
     this.fs.copy(
       this.templatePath('component.latte'),
