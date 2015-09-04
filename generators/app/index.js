@@ -33,6 +33,23 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('_composer.json'),
         this.destinationPath('composer.json')
       );
+      this.fs.directory(
+        this.templatePath('app'),
+        this.destinationPath('app')
+      );
+      this.fs.directory(
+        this.templatePath('www'),
+        this.destinationPath('www')
+      );
+      this.fs.directory(
+        this.templatePath('log'),
+        this.destinationPath('log')
+      );
+      this.fs.directory(
+        this.templatePath('temp'),
+        this.destinationPath('temp')
+      );
+      // todo change chmod? fs.chmodr ?
     },
   },
 
