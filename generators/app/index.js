@@ -27,30 +27,31 @@ module.exports = yeoman.generators.Base.extend({
     }.bind(this));
   },
 
-  writing: {
-    app: function () {
-      this.fs.copy(
-        this.templatePath('composer.json'),
-        this.destinationPath('composer.json')
-      );
-      this.fs.directory(
-        this.templatePath('app'),
-        this.destinationPath('app')
-      );
-      this.fs.directory(
-        this.templatePath('www'),
-        this.destinationPath('www')
-      );
-      this.fs.directory(
-        this.templatePath('log'),
-        this.destinationPath('log')
-      );
-      this.fs.directory(
-        this.templatePath('temp'),
-        this.destinationPath('temp')
-      );
-      // todo change chmod? fs.chmodr ?
-    },
+  writing: function () {
+
+    this.fs.copy(
+      this.templatePath('composer.json'),
+      this.destinationPath('composer.json')
+    );
+
+    this.directory(
+      this.templatePath('app'),
+      this.destinationPath('app')
+    );
+    this.directory(
+      this.templatePath('www'),
+      this.destinationPath('www')
+    );
+    this.directory(
+      this.templatePath('log'),
+      this.destinationPath('log')
+    );
+    this.directory(
+      this.templatePath('temp'),
+      this.destinationPath('temp')
+    );
+    // todo change chmod? fs.chmodr ?
+
   },
 
   install: function () {
