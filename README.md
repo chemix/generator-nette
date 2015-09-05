@@ -35,6 +35,18 @@ Finally, initiate the generator:
 yo nette
 ```
 
+For create new presenter ContactPresenter
+
+```bash
+yo nette:presenter contact
+```
+
+For create new component FileBrowser
+
+```bash
+yo nette:component fileBrowser
+```
+
 ### Getting To Know Yeoman
 
 Yeoman has a heart of gold. He's a person with feelings and opinions, but he's very easy to work with. If you think he's too opinionated, he can be easily convinced.
