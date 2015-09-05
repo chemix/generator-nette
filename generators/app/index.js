@@ -12,12 +12,20 @@ module.exports = yeoman.generators.Base.extend({
       'Welcome to the delightful ' + chalk.red('Nette') + ' generator!'
     ));
 
-    var prompts = [{
-      type: 'confirm',
-      name: 'composer',
-      message: 'Would you like to install dependencies via Composer?',
-      default: true
-    }];
+    var prompts = [
+      {
+        type: 'confirm',
+        name: 'composer',
+        message: 'Would you like to install dependencies via Composer?',
+        default: true
+      },
+      {
+        type: 'confirm',
+        name: 'adminer',
+        message: 'Would you like to install Adminer',
+        default: false
+      }
+    ];
 
     this.prompt(prompts, function (props) {
       this.props = props;
@@ -57,10 +65,18 @@ module.exports = yeoman.generators.Base.extend({
     );
     // todo change chmod? fs.chmodr ?
 
+    // tools
+    // Adminer
+    if (this.props.adminer) {
+      this.fs.copy(
+        this.templatePath('tools/adminer-4.2.2-mysql-en.php'),
+        this.destinationPath('www/adminer/index.php')
+      );
+    }
   },
 
   install: function () {
-    if (this.props.composer){
+    if (this.props.composer) {
       this.spawnCommand('composer', ['install']);
     }
   }
