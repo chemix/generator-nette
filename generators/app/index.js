@@ -14,8 +14,8 @@ module.exports = yeoman.generators.Base.extend({
 
     var prompts = [{
       type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
+      name: 'composer',
+      message: 'Would you like to install dependencies via Composer?',
       default: true
     }];
 
@@ -60,6 +60,8 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   install: function () {
-    this.spawnCommand('composer', ['install']);
+    if (this.props.composer){
+      this.spawnCommand('composer', ['install']);
+    }
   }
 });
