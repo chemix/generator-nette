@@ -34,6 +34,11 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('composer.json')
     );
 
+    this.fs.copy(
+      this.templatePath('yo-rc.json'),
+      this.destinationPath('.yo-rc.json')
+    );
+
     this.directory(
       this.templatePath('app'),
       this.destinationPath('app')
