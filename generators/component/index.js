@@ -10,7 +10,7 @@ module.exports = yeoman.generators.Base.extend({
       desc: 'The component name'
     });
 
-    this.log('You called the Nette subgenerator with the argument ' + this.componentName + '.');
+    this.log('You called the Nette component with the argument ' + this.componentName + '.');
   },
 
   writing: function () {
