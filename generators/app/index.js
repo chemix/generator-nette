@@ -24,6 +24,12 @@ module.exports = yeoman.generators.Base.extend({
         name: 'adminer',
         message: 'Would you like to install Adminer',
         default: false
+      },
+      {
+        type: 'confirm',
+        name: 'users',
+        message: 'Would you like to add base User model with login',
+        default: false
       }
     ];
 
@@ -64,6 +70,22 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('temp')
     );
     // todo change chmod? fs.chmodr ?
+
+    // Modele Users
+    if (this.props.users) {
+      this.directory(
+        this.templatePath('module-users/app'),
+        this.destinationPath('app')
+      );
+      this.directory(
+        this.templatePath('module-users/bin'),
+        this.destinationPath('bin')
+      );
+      this.directory(
+        this.templatePath('module-users/migrations'),
+        this.destinationPath('migrations')
+      );
+    }
 
     // tools
     // Adminer
