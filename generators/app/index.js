@@ -76,7 +76,7 @@ module.exports = yeoman.generators.Base.extend({
     );
     // todo change chmod? fs.chmodr ?
 
-    // Modele Users
+    // Module Users
     if (this.props.users) {
       this.directory(
         this.templatePath('module-users/app'),
