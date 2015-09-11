@@ -2,6 +2,7 @@
 
 ## 0.3.*
 
+0.3.1 - add database users and sign presenter, create config.local.neon with database credentials
 0.3.0 - presenter: add new generator
 
 ## 0.2.*
