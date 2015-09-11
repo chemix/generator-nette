@@ -30,6 +30,24 @@ module.exports = yeoman.generators.Base.extend({
         name: 'users',
         message: 'Would you like to add base User model with login',
         default: false
+      },
+      {
+        when: function(props) { return props.users; },
+        name: 'database',
+        default: 'test',
+        message: 'Database name:'
+      },
+      {
+        when: function(props) { return props.users; },
+        name: 'username',
+        default: 'root',
+        message: 'username:'
+      },
+      {
+        when: function(props) { return props.users; },
+        name: 'password',
+        default: '',
+        message: 'password:'
       }
     ];
 
@@ -98,6 +116,18 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('app/config/config.neon'),
       {
         moduleUsers: this.props.users
+      }
+    );
+    // config.local.neon
+    this.fs.copyTpl(
+      this.templatePath('_/app/config/_config.local.neon'),
+      this.destinationPath('app/config/config.local.neon'),
+      {
+        useDatabase: this.props.users,
+        moduleUsers: this.props.users,
+        database: this.props.database,
+        username: this.props.username,
+        password: this.props.password
       }
     );
 
