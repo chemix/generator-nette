@@ -49,6 +49,11 @@ module.exports = yeoman.generators.Base.extend({
     );
 
     this.fs.copy(
+      this.templatePath('_gitignore'),
+      this.destinationPath('.gitignore')
+    );
+
+    this.fs.copy(
       this.templatePath('yo-rc.json'),
       this.destinationPath('.yo-rc.json')
     );
