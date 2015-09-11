@@ -87,6 +87,16 @@ module.exports = yeoman.generators.Base.extend({
       );
     }
 
+    // Create config file
+    this.fs.copyTpl(
+      this.templatePath('_/app/config/_config.neon'),
+      this.destinationPath('app/config/config.neon'),
+      {
+        moduleUsers: this.props.users
+      }
+    );
+
+
     // tools
     // Adminer
     if (this.props.adminer) {

@@ -18,5 +18,7 @@ session:
 	expiration: 14 days
 
 
-services:
+services:<% if (moduleUsers){ %>
+	- App\Model\UserManager
+	- App\Forms\SignFormFactory<% } %>
 	router: App\RouterFactory::createRouter
