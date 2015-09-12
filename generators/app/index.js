@@ -27,27 +27,34 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'confirm',
-        name: 'users',
-        message: 'Would you like to add base User model with login',
-        default: false
+        name: 'database',
+        message: 'Would you like to add support for database connection (MySQL)',
+        default: true
       },
       {
-        when: function(props) { return props.users; },
+        when: function(props) { return props.database; },
         name: 'database',
         default: 'test',
         message: 'Database name:'
       },
       {
-        when: function(props) { return props.users; },
+        when: function(props) { return props.database; },
         name: 'username',
         default: 'root',
         message: 'username:'
       },
       {
-        when: function(props) { return props.users; },
+        when: function(props) { return props.database; },
         name: 'password',
         default: '',
         message: 'password:'
+      },
+      {
+        when: function(props) { return props.database; },
+        type: 'confirm',
+        name: 'users',
+        message: 'Would you like to add base User model with login',
+        default: false
       }
     ];
 
@@ -123,7 +130,7 @@ module.exports = yeoman.generators.Base.extend({
       this.templatePath('_/app/config/_config.local.neon'),
       this.destinationPath('app/config/config.local.neon'),
       {
-        useDatabase: this.props.users,
+        useDatabase: this.props.database,
         moduleUsers: this.props.users,
         database: this.props.database,
         username: this.props.username,
