@@ -27,6 +27,12 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         type: 'confirm',
+        name: 'basePresenter',
+        message: 'Would you like to use BasePresenter? (It\'s parent of all other Presenters)',
+        default: true
+      },
+      {
+        type: 'confirm',
         name: 'database',
         message: 'Would you like to add support for database connection (MySQL)',
         default: true
@@ -100,6 +106,23 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('temp')
     );
     // todo change chmod? fs.chmodr ?
+
+    // BasePresenter
+
+    this.fs.copyTpl(
+      this.templatePath('_/app/presenters/_HomepagePresenter.php'),
+      this.destinationPath('app/presenters/HomepagePresenter.php'),
+      {
+        basePresenter: this.props.basePresenter
+      }
+    );
+    if (this.props.basePresenter){
+      this.fs.copy(
+        this.templatePath('_/app/presenters/BasePresenter.php'),
+        this.destinationPath('app/presenters/BasePresenter.php')
+      );
+    }
+
 
     // Module Users
     if (this.props.users) {
