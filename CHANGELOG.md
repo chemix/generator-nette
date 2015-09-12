@@ -2,6 +2,7 @@
 
 ## 0.3.*
 
+0.3.2 - in app generator moved database option from user module.
 0.3.1 - add database users and sign presenter, create config.local.neon with database credentials
 0.3.0 - presenter: add new generator
 
