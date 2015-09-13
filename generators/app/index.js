@@ -123,6 +123,17 @@ module.exports = yeoman.generators.Base.extend({
       );
     }
 
+    // HomepagePresenter - template
+    this.fs.copyTpl(
+      this.templatePath('_/app/presenters/templates/Homepage/_default.latte'),
+      this.destinationPath('app/presenters/templates/Homepage/default.latte'),
+      {
+        adminer: this.props.adminer,
+        useDatabase: this.props.database,
+        moduleUsers: this.props.users,
+      }
+    );
+
 
     // Module Users
     if (this.props.users) {

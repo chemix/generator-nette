@@ -14,6 +14,16 @@
 	<a href="http://pla.nette.org">tutorials</a> and <a href="http://forum.nette.org">forum</a>.</p>
 
 	<h2>We hope you enjoy Nette!</h2>
+	<% if (moduleUsers) { %> <hr>
+	{if $user->isLoggedIn()}
+		<p>Welcome {$user->identity->username}, <a n:href="Sign:out">Sign out</a></p>
+	{else}
+		<p><a n:href="Sign:in">Sign in</a> (username: <em>admin</em>, password: <em>kreslo</em>)</p>
+	{/if}
+	<% } %>
+	<% if (adminer) { %> <hr>
+		<p><a href="adminer">Adminer (database tool)</a></p>
+	<% } %>
 </div>
 
 <style>
