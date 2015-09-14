@@ -51,6 +51,7 @@ module.exports = yeoman.generators.Base.extend({
       },
       {
         when: function(props) { return props.database; },
+        type: 'password',
         name: 'password',
         default: '',
         message: 'password:'
