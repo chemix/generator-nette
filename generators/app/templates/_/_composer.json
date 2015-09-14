@@ -7,8 +7,8 @@
 		"php": ">= 5.4.0",
 		"nette/application": "~2.3.0",
 		"nette/bootstrap": "~2.3.0",
-		"nette/caching": "~2.3.0",
-		"nette/database": "~2.3.0",
+		"nette/caching": "~2.3.0",<% if (useDatabase) { %>
+		"nette/database": "~2.3.0",<% } %>
 		"nette/di": "~2.3.0",
 		"nette/finder": "~2.3.0",
 		"nette/forms": "~2.3.0",

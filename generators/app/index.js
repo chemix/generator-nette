@@ -75,11 +75,6 @@ module.exports = yeoman.generators.Base.extend({
   writing: function () {
 
     this.fs.copy(
-      this.templatePath('composer.json'),
-      this.destinationPath('composer.json')
-    );
-
-    this.fs.copy(
       this.templatePath('_gitignore'),
       this.destinationPath('.gitignore')
     );
@@ -131,6 +126,16 @@ module.exports = yeoman.generators.Base.extend({
         adminer: this.props.adminer,
         useDatabase: this.props.database,
         moduleUsers: this.props.users,
+      }
+    );
+
+
+    // Composer.json
+    this.fs.copyTpl(
+      this.templatePath('_/_composer.json'),
+      this.destinationPath('composer.json'),
+      {
+        useDatabase: this.props.database,
       }
     );
 
