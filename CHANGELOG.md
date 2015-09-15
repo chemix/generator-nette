@@ -2,6 +2,7 @@
 
 ## 0.3.*
 
+0.3.5 - save configuration of basePresenter, update behavior for presenter generator (use basePresenter or not)
 0.3.4 - don't use nette\database if database is not selected 
 0.3.3 - use BasePresenter if option is selected, in Homepage template is link for login/logout and admniner
 0.3.2 - in app generator moved database option from user module.
