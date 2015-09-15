@@ -10,14 +10,18 @@ module.exports = yeoman.generators.Base.extend({
       desc: 'The presenter name'
     });
 
+    this.basePresenter = this.config.get('basePresenter');
+
     this.log('You called the Nette presenter with the argument ' + this.presenterName + '.');
   },
+
 
   writing: function () {
     this.fs.copyTpl(
       this.templatePath('_Presenter.php'),
       this.destinationPath('app/presenters/' + _.capitalize(this.presenterName) + 'Presenter.php'),
       {
+        basePresenter: this.basePresenter,
         presenterName: _.capitalize(this.presenterName)
       }
     );

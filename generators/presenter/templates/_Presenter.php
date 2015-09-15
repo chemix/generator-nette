@@ -5,7 +5,7 @@ namespace App\Presenters;
 use Nette;
 
 
-class <%= presenterName %>Presenter extends Nette\Application\UI\Presenter
+class <%= presenterName %>Presenter extends <% if (basePresenter) { %>BasePresenter<% } else { %>Nette\Application\UI\Presenter<% } %>
 {
 	public function renderDefault()
 	{

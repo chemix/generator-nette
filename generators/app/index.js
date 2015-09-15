@@ -187,6 +187,14 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('www/adminer/index.php')
       );
     }
+
+
+    // save configuration
+    if (this.props.basePresenter){
+      this.config.set('basePresenter', this.props.basePresenter);
+    }
+    this.config.save();
+
   },
 
   install: function () {
