@@ -62,7 +62,21 @@ module.exports = yeoman.generators.Base.extend({
         name: 'users',
         message: 'Would you like to add base User model with login',
         default: false
-      }
+      },
+      {
+        type: 'confirm',
+        name: 'multilanguage',
+        message: 'Would you like to add support multilanguage website',
+        default: false
+      },
+      {
+        when: function(props) { return props.multilanguage; },
+        type: 'checkbox',
+        name: 'languages',
+        choices: ['english', 'deutsch', 'czech', 'slovak'],
+        message: 'Which languages?',
+        default: ['english', 'czech']
+      },
     ];
 
     this.prompt(prompts, function (props) {
