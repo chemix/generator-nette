@@ -18,6 +18,16 @@ session:
 	expiration: 14 days
 
 
+<% if (multilanguage){ %>
+extensions:
+	translation: Kdyby\Translation\DI\TranslationExtension
+
+translation:
+	default: cs
+	fallback: [cs_CZ, cs]
+<% } %>
+
+
 services:<% if (moduleUsers){ %>
 	- App\Model\UserManager
 	- App\Forms\SignFormFactory<% } %>

@@ -14,6 +14,9 @@
 	<a href="http://pla.nette.org">tutorials</a> and <a href="http://forum.nette.org">forum</a>.</p>
 
 	<h2>We hope you enjoy Nette!</h2>
+	<% if (multilanguage) { %> <hr>
+		<h3>{$locale} / {_ ui.hello}</h3>
+	<% } %>
 	<% if (moduleUsers) { %> <hr>
 	{if $user->isLoggedIn()}
 		<p>Welcome {$user->identity->username}, <a n:href="Sign:out">Sign out</a></p>

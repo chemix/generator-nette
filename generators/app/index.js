@@ -123,13 +123,19 @@ module.exports = yeoman.generators.Base.extend({
       this.templatePath('_/app/presenters/_HomepagePresenter.php'),
       this.destinationPath('app/presenters/HomepagePresenter.php'),
       {
-        basePresenter: this.props.basePresenter
+        basePresenter: this.props.basePresenter,
+        multilanguage: this.props.multilanguage,
       }
     );
+
+    // Base presenter
     if (this.props.basePresenter){
-      this.fs.copy(
-        this.templatePath('_/app/presenters/BasePresenter.php'),
-        this.destinationPath('app/presenters/BasePresenter.php')
+      this.fs.copyTpl(
+        this.templatePath('_/app/presenters/_BasePresenter.php'),
+        this.destinationPath('app/presenters/BasePresenter.php'),
+        {
+          multilanguage: this.props.multilanguage,
+        }
       );
     }
 
@@ -141,6 +147,7 @@ module.exports = yeoman.generators.Base.extend({
         adminer: this.props.adminer,
         useDatabase: this.props.database,
         moduleUsers: this.props.users,
+        multilanguage: this.props.multilanguage,
       }
     );
 
@@ -151,9 +158,18 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('composer.json'),
       {
         useDatabase: this.props.database,
+        multilanguage: this.props.multilanguage,
       }
     );
 
+    // RouterFactory.php
+    this.fs.copyTpl(
+      this.templatePath('_/app/router/_RouterFactory.php'),
+      this.destinationPath('app/router/_RouterFactory.php'),
+      {
+        multilanguage: this.props.multilanguage,
+      }
+    );
 
     // Module Users
     if (this.props.users) {
@@ -171,12 +187,21 @@ module.exports = yeoman.generators.Base.extend({
       );
     }
 
+    // Module Multilanguage
+    if (this.props.multilanguage) {
+      this.directory(
+        this.templatePath('module-multilanguage/app'),
+        this.destinationPath('app')
+      );
+    }
+
     // Create config file
     this.fs.copyTpl(
       this.templatePath('_/app/config/_config.neon'),
       this.destinationPath('app/config/config.neon'),
       {
-        moduleUsers: this.props.users
+        moduleUsers: this.props.users,
+        multilanguage: this.props.multilanguage,
       }
     );
     // config.local.neon
@@ -206,6 +231,7 @@ module.exports = yeoman.generators.Base.extend({
     // save configuration
     if (this.props.basePresenter){
       this.config.set('basePresenter', this.props.basePresenter);
+      this.config.set('multilanguage', this.props.multilanguage);
     }
     this.config.save();
 
