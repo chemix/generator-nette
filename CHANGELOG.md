@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.*
+
+0.4.0 - add multilanguage support, fix no database way in configuration
+
+
 ## 0.3.*
 
 0.3.5 - save configuration of basePresenter, update behavior for presenter generator (use basePresenter or not)
