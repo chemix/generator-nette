@@ -8,8 +8,8 @@ database:
 	options:
 		lazy: yes
 <% } else { %>
-database:
-	dsn: 'mysql:host=127.0.0.1;dbname=test'
-	user:
-	password:
+#database:
+#	dsn: 'mysql:host=127.0.0.1;dbname=test'
+#	user:
+#	password:
 <% } %>
