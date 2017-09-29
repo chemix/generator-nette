@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Nette Community",
+      "authorEmail": "honza@fabik.org",
+      "authorUrl": ""
+    }
+  }
+}
